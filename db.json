@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "login": "User123",
+      "password": "$2a$05$3mviVVauvujYpsZc8HZ7D.BiaxCXMsigdshjcFSA7IYfv3rRoT7nq",
+      "id": "849e2ef0-52a7-11ef-b09a-a5a90d6299f6"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Sfgsrfg",
+      "body": "bfbdfbdfb",
+      "id": "98932c20-52a8-11ef-b3a4-edbdb4203f0b"
+    }
+  ]
+}
