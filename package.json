@@ -25,6 +25,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/platform-express": "^10.0.0",
+    "array-paginate": "^1.0.2",
     "bcryptjs": "^2.4.3",
     "lowdb": "^1.0.0",
     "reflect-metadata": "^0.1.13",

@@ -1428,6 +1428,11 @@ array-flatten@1.1.1:
   resolved "https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz"
   integrity sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg==
 
+array-paginate@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/array-paginate/-/array-paginate-1.0.2.tgz#255e5a57a1a15b58d78815f08645650125907486"
+  integrity sha512-OwXviHQ0sTwHSquz6lmg9vexgcKR0trhxirwDZkTn33KaHGakJJVcSnWp+0enJ0yQgd78c5Hq2An2fHKgtLHhA==
+
 array-timsort@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/array-timsort/-/array-timsort-1.0.3.tgz"

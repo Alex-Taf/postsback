@@ -17,6 +17,10 @@ export class UserService {
     private lowdbService: LowdbService,
   ) {}
 
+  async checkUser(id: string) {
+    return await this.lowdbService.find({ id }, 'users');
+  }
+
   async login(userDto: UserDto) {
     const user = await this._validateUser(userDto);
     if (user) {

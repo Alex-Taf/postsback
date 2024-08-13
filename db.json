@@ -8,9 +8,69 @@
   ],
   "posts": [
     {
-      "title": "Sfgsrfg",
-      "body": "bfbdfbdfb",
-      "id": "98932c20-52a8-11ef-b3a4-edbdb4203f0b"
+      "title": "Edited post",
+      "body": "<p><em><ins>New article text here</ins></em></p>\n",
+      "id": "0ccaf5f0-583a-11ef-811a-b1e332efbc8e"
+    },
+    {
+      "title": "New post",
+      "body": "Body text here...",
+      "id": "8f1b23d0-583b-11ef-811a-b1e332efbc8e"
+    },
+    {
+      "title": "First Post News",
+      "body": "<p>First post in a news blog board</p>\n",
+      "id": "fc0861a0-58b4-11ef-b143-1561229e7753"
+    },
+    {
+      "title": "New post",
+      "body": "Body text here...",
+      "id": "ecf25c90-58c6-11ef-9fe5-6b6c97bc338d"
+    },
+    {
+      "title": "New post",
+      "body": "Body text here...",
+      "id": "edc0f730-58c6-11ef-9fe5-6b6c97bc338d"
+    },
+    {
+      "title": "New post",
+      "body": "Body text here...",
+      "id": "ef853c70-58c6-11ef-9fe5-6b6c97bc338d"
+    },
+    {
+      "title": "New post",
+      "body": "Body text here...",
+      "id": "f19a60d0-58c6-11ef-9fe5-6b6c97bc338d"
+    }
+  ],
+  "comments": [
+    {
+      "postId": "0ccaf5f0-583a-11ef-811a-b1e332efbc8e",
+      "username": "User123",
+      "body": "В черепе вспыхнула искорка боли",
+      "date": "13-08-2024",
+      "id": "cafbb910-58ee-11ef-95a9-cb42f87ab66f"
+    },
+    {
+      "postId": "0ccaf5f0-583a-11ef-811a-b1e332efbc8e",
+      "username": "User123",
+      "body": "Разумность идей",
+      "date": "13-08-2024",
+      "id": "37c04430-58ef-11ef-95a9-cb42f87ab66f"
+    },
+    {
+      "postId": "0ccaf5f0-583a-11ef-811a-b1e332efbc8e",
+      "username": "NewNew",
+      "body": "Тестовый",
+      "date": "13-08-2024",
+      "id": "7a2962b0-5990-11ef-8cf2-03dba02bfbc5"
+    },
+    {
+      "postId": "0ccaf5f0-583a-11ef-811a-b1e332efbc8e",
+      "username": "NewNew",
+      "body": "Тестовый комментарий от другого пользователя",
+      "date": "13-08-2024",
+      "id": "803a6cd0-5990-11ef-8cf2-03dba02bfbc5"
     }
   ]
 }

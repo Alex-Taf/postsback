@@ -1,15 +1,18 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Patch,
   Post,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { LowdbService } from 'src/lowdb/lowdb.service';
 import { PostDto } from './dto/post.dto';
 import { JwtAuthGuard } from 'src/user/jwt-auth.guard';
+import * as arrayPaginate from 'array-paginate';
 
 @Controller('post')
 export class PostController {
@@ -19,7 +22,12 @@ export class PostController {
   @Post('create')
   async create(@Body() body: PostDto) {
     const createdPost = await this.lowdbService.add(body, 'posts');
-    return createdPost;
+
+    const posts = await this.lowdbService.findAll('posts');
+    const paginatedItems = arrayPaginate(posts, 1, 3);
+    const totalPages = paginatedItems.totalPages;
+
+    return { totalPages, post: createdPost };
   }
 
   @UseGuards(JwtAuthGuard)
@@ -29,9 +37,25 @@ export class PostController {
     return updatedPost;
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Delete('delete/:id')
+  delete(@Param('id') id: string) {
+    return this.lowdbService.delete(id, 'posts');
+  }
+
   @Get('get')
-  async getPosts() {
+  async getPosts(
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10,
+  ) {
     const posts = await this.lowdbService.findAll('posts');
-    return posts;
+    const paginatedItems = arrayPaginate(posts, page, limit);
+    return paginatedItems;
+  }
+
+  @Get('get/:id')
+  async getOnePost(@Param('id') id: string) {
+    const post = await this.lowdbService.findById(id, 'posts');
+    return post;
   }
 }

@@ -8,6 +8,8 @@ import { PostService } from './post/post.service';
 import { PostModule } from './post/post.module';
 import { PostController } from './post/post.controller';
 import { JwtModule } from '@nestjs/jwt';
+import { CommentService } from './comment/comment.service';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
@@ -18,8 +20,9 @@ import { JwtModule } from '@nestjs/jwt';
     UserModule,
     PostModule,
     JwtModule,
+    CommentModule,
   ],
   controllers: [UserController, PostController],
-  providers: [LowdbService, UserService, PostService],
+  providers: [LowdbService, UserService, PostService, CommentService],
 })
 export class AppModule {}

@@ -21,13 +21,39 @@ export class LowdbService {
   }
 
   async findAll(collectionName: string): Promise<any> {
+    if (!this.isCollectionExists(collectionName)) {
+      this.db.set(collectionName, []).write();
+    }
+
     const values = await this.db.get(collectionName).value();
     return values;
   }
 
   async find(condition: object, collectionName: string): Promise<any> {
+    if (!this.isCollectionExists(collectionName)) {
+      this.db.set(collectionName, []).write();
+    }
+
     const values = await this.db.get(collectionName).find(condition).value();
     return values;
+  }
+
+  async findById(id: string, collectionName: string) {
+    if (!this.isCollectionExists(collectionName)) {
+      this.db.set(collectionName, []).write();
+    }
+
+    const values = await this.db.get(collectionName).value();
+    return values.find((val) => val.id === id);
+  }
+
+  async filterById(id: string, collectionName: string) {
+    if (!this.isCollectionExists(collectionName)) {
+      this.db.set(collectionName, []).write();
+    }
+
+    const values = await this.db.get(collectionName).value();
+    return values.filter((val) => val.postId === id);
   }
 
   update(id: string, record: object, collectionName: string) {
@@ -49,25 +75,6 @@ export class LowdbService {
     return record;
   }
 
-  //   async update(
-  //     key: string,
-  //     value: string | string,
-  //     collectionName: string,
-  //     dataUpdate: any,
-  //   ): Promise<any> {
-  //     const values = await this.db.get(collectionName).value();
-  //     let out;
-  //     const listData = values.map((item) => {
-  //       if (item[key] !== value) return value;
-  //       if (item[key] === value) {
-  //         out = Object.assign(value, dataUpdate);
-  //         return out;
-  //       }
-  //     });
-  //     await this.db.set(collectionName, listData).write();
-  //     return out;
-  //   }
-
   isCollectionExists(collectionName: string): boolean {
     if (!this.db.get(collectionName).value()) return false;
     return true;
@@ -84,5 +91,15 @@ export class LowdbService {
     this.db.set(collectionName, listData).write();
 
     return record;
+  }
+
+  delete(id: string, collectionName: string) {
+    if (!this.isCollectionExists(collectionName)) {
+      this.db.set(collectionName, []).write();
+    }
+
+    const listData = this.db.get(collectionName).value();
+    const newListData = listData.filter((el) => el.id !== id);
+    this.db.set(collectionName, newListData).write();
   }
 }
